@@ -1,0 +1,24 @@
+{
+    "name": "ModerationDiscord",
+    "version": "0",
+    "author": "Elijah R",
+    "description": "Fires a Discord webhook when an edit is added to the moderation queue.",
+    "license-name": "Unlicense",
+    "type": "other",
+    "manifest_version": 2,
+    "config": {
+        "ModerationDiscordWebhook": {
+            "value": "",
+            "description": "The Discord webhook URL to send moderation notifications to."
+        }
+    },
+    "ConfigRegistry": {
+        "ModerationDiscord": "GlobalVarConfig::newInstance"
+    },
+    "AutoloadClasses": {
+        "ModerationDiscord": "src/ModerationDiscord.php"
+    },
+    "Hooks": {
+        "ModerationPending": "ModerationDiscord::onModerationPending"
+    }
+}
